@@ -1,0 +1,2 @@
+ALTER TABLE financial_records
+ADD COLUMN IF NOT EXISTS deleted_at TIMESTAMP NULL;

@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+.git
+.github
+.codex-temp
+.env
+.env.local
+*.log
+SETUP_COMPLETE.md

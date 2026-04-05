@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: zorvyn-backend
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    preDeployCommand: npm run db:migrate
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRY
+        value: 7d
+      - key: DB_HOST
+        fromDatabase:
+          name: zorvyn-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: zorvyn-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: zorvyn-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: zorvyn-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: zorvyn-db
+          property: password
+
+databases:
+  - name: zorvyn-db
+    plan: free
+    databaseName: finance_db

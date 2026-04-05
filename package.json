@@ -1,0 +1,51 @@
+{
+  "name": "finance-backend",
+  "version": "1.0.0",
+  "description": "Finance Data Processing and Access Control Backend",
+  "main": "dist/src/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/server.js",
+    "dev": "tsx watch src/server.ts",
+    "test": "jest --coverage --runInBand",
+    "test:watch": "jest --watch",
+    "seed": "tsx scripts/seed.ts",
+    "db:init": "tsx scripts/init-schema.ts",
+    "db:create": "tsx scripts/create-db.ts",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "test:api": "tsx scripts/test-api.ts"
+  },
+  "keywords": [
+    "finance",
+    "backend",
+    "express",
+    "postgresql",
+    "rbac"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "dotenv": "^16.0.3",
+    "cors": "^2.8.5",
+    "joi": "^17.9.2",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/node": "^22.13.10",
+    "@types/pg": "^8.11.10",
+    "@types/supertest": "^6.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
