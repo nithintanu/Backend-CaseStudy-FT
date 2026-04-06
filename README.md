@@ -170,9 +170,10 @@ Typical deployment flow:
 The Render service configuration uses:
 
 - `npm ci && npm run build` as the build command
-- `npm run db:migrate` as the pre-deploy migration command
 - `npm start` as the start command
 - `/api/health` as the health check path
+
+Migrations run during application startup, so a separate pre-deploy migration command is not required for the free Render web service tier.
 
 ### Docker
 
