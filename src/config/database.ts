@@ -1,12 +1,20 @@
 import { Pool, type PoolClient, type QueryResult, type QueryResultRow } from 'pg';
 import config from './index';
 
+const ssl =
+  process.env.DB_SSL?.trim().toLowerCase() === 'true'
+    ? {
+        rejectUnauthorized: false,
+      }
+    : undefined;
+
 const pool = new Pool({
   host: config.database.host,
   port: config.database.port,
   database: config.database.database,
   user: config.database.user,
   password: config.database.password,
+  ssl,
 });
 
 pool.on('error', (error) => {
