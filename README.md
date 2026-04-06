@@ -113,6 +113,7 @@ The main configuration values are:
 - `DB_NAME`
 - `DB_USER`
 - `DB_PASSWORD`
+- `DB_SSL` optional
 - `JWT_SECRET`
 - `JWT_EXPIRY`
 - `API_BASE_URL` optional
@@ -211,6 +212,10 @@ Admin:   admin / admin123
 Analyst: analyst / analyst123
 Viewer:  viewer / viewer123
 ```
+
+Seeded sample financial records are attached to the `analyst` account.
+
+Most `/records` and `/analytics` endpoints are user-scoped, so `admin` and `viewer` accounts may see empty record lists or zero-value summaries until data is created for those users. For admin-level review, use `/records/admin/all` and `/analytics/admin/dashboard`.
 
 ## API Overview
 
