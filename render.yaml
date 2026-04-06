@@ -3,6 +3,7 @@ services:
     name: zorvyn-backend
     runtime: node
     plan: free
+    region: singapore
     buildCommand: npm ci && npm run build
     preDeployCommand: npm run db:migrate
     startCommand: npm start
@@ -41,4 +42,5 @@ services:
 databases:
   - name: zorvyn-db
     plan: free
+    region: singapore
     databaseName: finance_db
