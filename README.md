@@ -169,7 +169,7 @@ Typical deployment flow:
 
 The Render service configuration uses:
 
-- `npm ci && npm run build` as the build command
+- `npm ci --include=dev && npm run build` as the build command
 - `npm start` as the start command
 - `/api/health` as the health check path
 
